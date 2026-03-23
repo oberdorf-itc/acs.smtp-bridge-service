@@ -19,7 +19,6 @@ services:
       SMTP_SERVER: localhost
       SMTP_PORT: 25
       SMTP_TLS: false
-      SMTP_TLS_INSECURE: false
       SMTP_USERNAME: smtp_user
       #SMTP_PASSWORD: mySMTPPassword
       SMTP_PASSWORD_FILE: /run/secrets/smtp_password

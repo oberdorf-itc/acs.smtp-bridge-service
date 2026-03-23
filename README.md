@@ -60,7 +60,6 @@ The container get's the configuration from environment variables.
 | `SMTP_SERVER`               | The SMTP mailserver.                                                                            | OPTIONAL      | `localhost`                          |
 | `SMTP_PORT`                 | The SMTP mailserver TCP port.                                                                   | OPTIONAL      | `25`                                 |
 | `SMTP_TLS`                  | Should SSL communication be enabled (`true`) or not (`false`).                                  | OPTIONAL      | `false`                              |
-| `SMTP_TLS_INSECURE`         | If TLS is enabled, skip the hostname validation of the TLS certificate.                         | OPTIONAL      | `false`                              |
 | `SMTP_USERNAME`             | The SMTP username for SMTP authentication.                                                      | OPTIONAL      |                                      |
 | `SMTP_PASSWORD`             | The SMTP password for SMTP authentication.                                                      | OPTIONAL      |                                      |
 | `SMTP_PASSWORD_FILE`        | The filepath where the SMTP password is stored for SMTP authentication.                         | OPTIONAL      |                                      |

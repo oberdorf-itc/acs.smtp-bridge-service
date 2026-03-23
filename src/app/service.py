@@ -21,7 +21,7 @@ from lib.smtp import mailer
 
 __author__ = "Michael Oberdorf <info@oberdorf-itc.de>"
 __status__ = "production"
-__date__ = "2026-03-21"
+__date__ = "2026-03-23"
 __version_info__ = ("1", "0", "0")
 __version__ = ".".join(__version_info__)
 
@@ -418,7 +418,6 @@ def __send_email(subject: str, body: str) -> None:
     __smtp_tls__ = False
     if os.environ.get("SMTP_TLS", "false").lower() == "true":
         __smtp_tls__ = True
-    # __smtp_tls_insecure__ = os.environ.get("SMTP_TLS_INSECURE", "false").lower() == "true"
     mailWrapper.setMailserver(
         server=os.environ.get("SMTP_SERVER", "localhost"), port=int(os.environ.get("SMTP_PORT", 25)), tls=__smtp_tls__
     )
