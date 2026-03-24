@@ -21,7 +21,7 @@ from lib.smtp import mailer
 
 __author__ = "Michael Oberdorf <info@oberdorf-itc.de>"
 __status__ = "production"
-__date__ = "2026-03-23"
+__date__ = "2026-03-24"
 __version_info__ = ("1", "0", "0")
 __version__ = ".".join(__version_info__)
 
