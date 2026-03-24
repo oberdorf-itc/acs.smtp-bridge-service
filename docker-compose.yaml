@@ -1,0 +1,42 @@
+services:
+  smtp-bridge-service:
+    restart: always
+    user: 2200:2200
+    image: oitc/acs.smtp-bridge-service:latest
+    environment:
+      MQTT_SERVER: test.mosquitto.org
+      MQTT_PORT: 8883
+      MQTT_PROTOCOL_VERSION: 5
+      MQTT_TLS: true
+      MQTT_CACERT_FILE: /etc/ssl/certs/ca-certificates.crt
+      MQTT_TLS_INSECURE: false
+      MQTT_CLIENT_ID: c27c9da3-ac39-47f2-bf03-48753d1ab3e7
+      MQTT_USERNAME: acs.pushover-bridge-service
+      #MQTT_PASSWORD: myMQTTPassword
+      MQTT_PASSWORD_FILE: /run/secrets/mqtt_password
+      MQTT_TOPIC_ACS_STATUS: location/oitc-acs/general/status
+      MQTT_TOPIC_DOOR_ACCESS: location/oitc-acs/entrypoints/+/access
+      SMTP_SERVER: localhost
+      SMTP_PORT: 25
+      SMTP_TLS: false
+      SMTP_USERNAME: smtp_user
+      #SMTP_PASSWORD: mySMTPPassword
+      SMTP_PASSWORD_FILE: /run/secrets/smtp_password
+      SMTP_SENDER_ADDRESS: acs@localhost
+      SMTP_RECIPIENTS_ADDRESSES: "noreply@example.com"
+      SMTP_SUBJECT_PREFIX: "[OITC Access Control System]"
+      SMTP_SEND_MAIL_BY_DEFAULT: true
+      PROMETHEUS_LISTENER_ADDR: 0.0.0.0
+      PROMETHEUS_LISTENER_PORT: 8080
+      TZ: Europe/Berlin
+    ports:
+      - "8080:8080"
+    secrets:
+      - mqtt_password
+      - smtp_password
+
+secrets:
+  mqtt_password:
+    file: /srv/docker/acs.smtp-bridge-service/secrets/mqtt_password
+  smtp_password:
+    file: /srv/docker/acs.smtp-bridge-service/secrets/smtp_password
